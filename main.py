@@ -1,39 +1,22 @@
-from typing import Union #this module helps in setting default values 
-from fastapi import FastAPI, Query 
-from enum import Enum
+from fastapi import FastAPI, UploadFile, File
+from PIL import Image
+import io
+
 app = FastAPI()
 
-class options(str, Enum):
-    option1 = "alexnet"
-    option2 = "resnet"
-    option3 = "lenet"
-
-
-@app.get("/hello")#path 
-def read_root():
-    return {"hi from my side"}#the result it will show at the server
-
-
-@app.get("/hy") #it will do the same as above
-def read_item():
-    return {"message":"heyya"}
-
-
-
-@app.get("/query/{items}") #server query where a path parameter is set as item which will run the func and return the item itself which is stored in a varibale 
-def func(items):
-    name={"path variabl":items}
-    return(name)
 
 @app.get("/details") #have to put my name and roll no as required parameters else it will show error 
 def info(name:str,roll_no:int):
     name={"name":name,"roll no":roll_no}
     return(name)
-@app.get("/details2") #have to put my name and roll no(optional)or it will show the default value as null) as required parameters else it wont load the server
-def info(name:str,roll_no:Union[str,None]=Query(default=None,min_length=3,max_length=3)):#the min length and max length works on strings and not on integer so changed the type,the query helps in fixing the max and min length of the stringg which is 3 here.
-    name={"name":name,"roll no":roll_no}#storing the name and roll no in a variable
-    return(name) #reurning the variable
 
-@app.get("/models/{items}") 
-async def getmodel(items: options): #predefining the parameters in the class options
-    return(items)
+@app.post("/resize")
+async def resize_image(name:str,roll_no:int,passportphoto:UploadFile=File()):
+    details={"name":name,"roll_no":roll_no,"message":"The resized image has been saved in the imgtool folder of this PC by a new name as newimage1.png"}
+    file_info = await passportphoto.read() # reading the image i uploaded and saves its info in file_info
+    image_data = io.BytesIO(file_info) # Use BytesIO to create a file-like object containing the image data
+    img = Image.open(image_data) # Open the image using syntax "open" which fetch the image data through image_data
+    resized_image = img.resize((300,300)) # Resize the image to 300*300 ratio using the syntax "resize"
+    resized_image.save("newimage1.png")  #saves the image in my pc in imgtool folder
+    return(details)  #returns the details which student has given and delivers a message alongwith
+    
