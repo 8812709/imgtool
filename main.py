@@ -8,7 +8,7 @@ def info(name:str,roll_no:int):
         name={"name":name,"roll no":roll_no}
         return(name)
     except Exception as e:
-        raise HTTPException(status_code=404,details="some error occured while processing:{str(e)}")
+        raise HTTPException(status_code=404,details=f"some error occured while processing:{str(e)}")
 
 @app.post("/resize")
 async def resize_image(name:str,roll_no:int,passportphoto:UploadFile=File(),width:int=300,height:int=300):
