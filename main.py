@@ -1,6 +1,5 @@
 from fastapi import FastAPI, UploadFile, File,HTTPException
 from PIL import Image,UnidentifiedImageError
-import os
 app = FastAPI()
 @app.post("/resize")
 async def resize_image(passportphoto:UploadFile=File(),width:int=300,height:int=300):
