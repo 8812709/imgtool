@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Resize tool</title>
+    <style>
+        .adjust{
+            font-size: larger;
+            font-weight: 200; 
+        }
+        .head{
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            word-spacing: 2px;
+
+        }
+        #table1{
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            background-color: rgb(0, 255, 255);
+            border-radius: 30px;
+            padding: 9px;
+            border-style: groove;
+            border-color: black;
+        }
+        #table2{
+            /* text-align: center; */
+            width: 60%;
+            margin-left: auto;
+            margin-top: 4px;
+            margin-right: auto;
+            margin-bottom:auto;
+            border: dotted;
+            border-radius: 45px;
+            padding: 30px;
+            /* background-color:rgba(137, 43, 226, 0.532); */
+        }
+        body{
+            background-color: aquamarine;
+        }
+        .middle{
+            text-align: center;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <table>
+            <tr>
+                <td>
+                    <details>
+                        <summary class="adjust">COMPRESS</summary>
+                        <p>compress the image by<br>to  any desired size</p>
+                    </details>
+                </td>
+                <td>
+                    <details>
+                        <summary class="adjust">RESIZE</summary>
+                        <p>Resize the image to <br> any desired ratio</p>
+                    </details>
+                </td>
+            </tr>
+        </table>
+    </header>
+    <main>
+    <h1 class="head">FREE IMAGE RESIZE TOOL</h1>
+    <h2 class="head">Resize images in 3 easy steps</h2>
+    <br>
+    <table id="table1">
+        <tr>
+            <td><b>1</b></td>
+            <td><b>2</b></td>
+            <td><b>3</b></td>
+        </tr>
+        <tr>
+            <td><b>Upload an Image</b></td>
+            <td><b>Select the size</b></td>
+            <td><b>Download</b></td>
+        </tr>
+        <tr>
+            <td>Upload an image from <br> your local device below</td>
+            <td>Choose image sizes using <br> the width and Height.</td>
+            <td>Download your resized <br> image or convert</td>
+        </tr>
+    </table>
+    <br>
+    <table id="table2">
+        <tr>
+            <td rowspan="5" id="tablerow" class="middle"><input type="file" id="data"></td>
+            <td colspan="2"><b>Custom resize</b></td>
+        </tr>
+        <tr>
+            <td><label for="wid">Width(in Px)</label></td>
+            <td><label for="hei">Height(in Px)</label></td>
+        </tr>
+        <tr>
+            <td><input type="number" id="wid" placeholder="Enter the width here"></td>
+            <td><input type="number" id="hei" placeholder="Enter the Height here"></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="middle">
+                <label for="box">Maintain Aspect Ratio</label>
+                <input type="checkbox">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="middle"><button><a href=""><b>Download</b>
+            </a></button></td>
+        </tr>
+    </table>
+    </main>
+</body>
+</html>

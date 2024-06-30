@@ -23,7 +23,7 @@ async def compress_image(quality: int = 20, uploadphoto: UploadFile = File()): #
         raise HTTPException(status_code=400,detail="invalid value of quality selected please select between 1 and 95")
     
     compimage.save("newcompimage1.png", optimize=True, quality=quality) #it will save the image in the same directory where my python file is present with the quality of image i have choosen
-    details = {"message": "The compressed file has been saved to the imgfolder with name newcompimage2.png"}
+    details = {"message": "The compressed file has been saved to the imgfolder with name newimage2.png"}
     return details #it will return the details i have included in the details i.e. a message
 @app.post("/aspectratio")
 async def ratio_resize(passportphoto:UploadFile=File(),width:int=300,height:int=300):
