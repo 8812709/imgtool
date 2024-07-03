@@ -22,7 +22,7 @@
             width: 50%;
             background-color: rgb(0, 255, 255);
             border-radius: 30px;
-            padding: 9px;
+            padding: 8px;
             border-style: groove;
             border-color: black;
         }
@@ -30,19 +30,31 @@
             /* text-align: center; */
             width: 60%;
             margin-left: auto;
-            margin-top: 4px;
+            margin-top: 3px;
             margin-right: auto;
-            margin-bottom:auto;
             border: dotted;
             border-radius: 45px;
-            padding: 30px;
+            padding-bottom: 10px;
+            padding: 20px;
             /* background-color:rgba(137, 43, 226, 0.532); */
         }
         body{
             background-color: aquamarine;
         }
-        .middle{
+        .middle,#inputimage{
             text-align: center;
+            padding: 10px;
+        }
+        #tablerow{
+            background-color: aliceblue;
+            border: solid black;
+            border-radius: 20px;
+        }
+        #downloadbut,#resizebut,#uploadbut{
+            background-color: aqua;
+            padding-top: 3px;
+            border-style: solid;
+            border-radius: 30px;
         }
         
 
@@ -91,7 +103,7 @@
     <br>
     <table id="table2">
         <tr>
-            <td rowspan="5" id="tablerow" class="middle"><input type="file" id="data"></td>
+            <td rowspan="4" id="tablerow" class="middle"><input type="file" id="inputimage"></td>
             <td colspan="2"><b>Custom resize</b></td>
         </tr>
         <tr>
@@ -105,14 +117,20 @@
         <tr>
             <td colspan="2" class="middle">
                 <label for="box">Maintain Aspect Ratio</label>
-                <input type="checkbox">
+                <input type="checkbox" id="checkbox">
             </td>
         </tr>
         <tr>
-            <td colspan="2" class="middle"><button><a href=""><b>Download</b>
-            </a></button></td>
+            <td class="middle"><button id="uploadbut">Upload</button></td>
+            <td colspan="2" class="middle">
+                <button id="resizebut">Resize Image</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" id="table2r6" class="middle"><button id="downloadbut">Download</button></td>
         </tr>
     </table>
     </main>
+    <script src="link.js"></script>
 </body>
 </html>

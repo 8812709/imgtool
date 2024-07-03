@@ -1,6 +1,15 @@
 from fastapi import FastAPI, UploadFile, File,HTTPException
 from PIL import Image,UnidentifiedImageError
 app = FastAPI()
+from fastapi.middleware.cors import CORSMiddleware
+# Allow all origins during development, be more specific in production
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://127.0.0.1:5500"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST"],  # Add the methods your frontend uses
+    allow_headers=["*"],
+)
 @app.post("/resize")
 async def resize_image(passportphoto:UploadFile=File(),width:int=300,height:int=300):
     details={"message":"The resized image has been saved in the imgtool folder of this PC by a new name as newimage1.png"}
