@@ -1,4 +1,4 @@
-from fastapi import FastAPI, UploadFile, File,HTTPException
+from fastapi import FastAPI, UploadFile, File,HTTPException,Form
 from PIL import Image,UnidentifiedImageError
 app = FastAPI()
 from fastapi.middleware.cors import CORSMiddleware
@@ -11,7 +11,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 @app.post("/resize")
-async def resize_image(passportphoto:UploadFile=File(),width:int=300,height:int=300):
+async def resize_image(passportphoto:UploadFile=File(),width:int=Form(),height:int=Form()):
     details={"message":"The resized image has been saved in the imgtool folder of this PC by a new name as newimage1.png"}
     try:
         img = Image.open(passportphoto.file) #Open the image using syntax "open" which fetch the image data through the uploaded file
@@ -35,7 +35,7 @@ async def compress_image(quality: int = 20, uploadphoto: UploadFile = File()): #
     details = {"message": "The compressed file has been saved to the imgfolder with name newimage2.png"}
     return details #it will return the details i have included in the details i.e. a message
 @app.post("/aspectratio")
-async def ratio_resize(passportphoto:UploadFile=File(),width:int=300,height:int=300):
+async def ratio_resize(passportphoto:UploadFile=File(),width:int=Form(),height:int=Form()):
     details={"message":"The resized image has been saved in the imgtool folder of this PC by a new name as newimage1.png"}
     try:
         img2 = Image.open(passportphoto.file) #Open the image using syntax "open" which fetch the image data through the uploaded file
@@ -44,5 +44,5 @@ async def ratio_resize(passportphoto:UploadFile=File(),width:int=300,height:int=
     if (width<1 or height<1):
         raise HTTPException(status_code=400,detail="please enter the valid width and height for image resizing i.e. greater than 1")
     resized_img= img2.thumbnail((int(width),int(height))) #Resize the image to 300*300 ratio using the syntax "resize"
-    img2.save("newimage2.png") #saves the image in my pc in imgtool folder
+    img2.save("newimage1.png") #saves the image in my pc in imgtool folder
     return(details)  #returns a message 
