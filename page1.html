@@ -43,41 +43,34 @@
         }
         .middle,#inputimage{
             text-align: center;
-            padding: 10px;
+            padding: 5px;
         }
         #tablerow{
             background-color: aliceblue;
             border: solid black;
             border-radius: 20px;
+            padding-bottom: 10px;
+            padding-left: 10px;
         }
-        #downloadbut,#resizebut,#uploadbut{
+        #resizebut,#uploadbut{
             background-color: aqua;
             padding-top: 3px;
             border-style: solid;
             border-radius: 30px;
         }
-        
-
+        #imghere{
+            padding-left: 20px;
+            padding-right: 20px;
+            background-color: rgba(217, 102, 20, 0.747);
+            border-style: solid;
+            border-radius: 15px;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
     <header>
-        <table>
-            <tr>
-                <td>
-                    <details>
-                        <summary class="adjust">COMPRESS</summary>
-                        <p>compress the image by<br>to  any desired size</p>
-                    </details>
-                </td>
-                <td>
-                    <details>
-                        <summary class="adjust">RESIZE</summary>
-                        <p>Resize the image to <br> any desired ratio</p>
-                    </details>
-                </td>
-            </tr>
-        </table>
+        <nav class="adjust"><b>Compress</b></nav> 
     </header>
     <main>
     <h1 class="head">FREE IMAGE RESIZE TOOL</h1>
@@ -101,6 +94,7 @@
         </tr>
     </table>
     <br>
+<div>
     <table id="table2">
         <tr>
             <td rowspan="4" id="tablerow" class="middle"><input type="file" id="inputimage"></td>
@@ -115,22 +109,32 @@
             <td><input type="number" id="hei" placeholder="Enter the Height here"></td>
         </tr>
         <tr>
-            <td colspan="2" class="middle">
-                <label for="box">Maintain Aspect Ratio</label>
-                <input type="checkbox" id="checkbox">
+            <td class="middle">
+                <label for="size">Enter the target file size(in KB)</label>
+            </td>
+            <td>
+                <input type="number" name="targetsize" id="size" placeholder="Enter the target file size">
             </td>
         </tr>
         <tr>
-            <td class="middle"><button id="uploadbut">Upload</button></td>
-            <td colspan="2" class="middle">
-                <button id="resizebut">Resize Image</button>
+            <td class="middle"><button id="uploadbut" onclick="settingimage()">Upload</button></td>
+            <td class="middle" colspan="3">
+                <label for="checkbox" class="middle">Maintain Aspect Ratio</label>
+                <input type="checkbox" id="checkbox" class="middle">
             </td>
+            
         </tr>
         <tr>
-            <td colspan="3" id="table2r6" class="middle"><button id="downloadbut">Download</button></td>
+             <td class="middle">
+            <button id="resizebut" onclick="postdata()">Resize Image</button>
+        </td>
+        <td id="table2r6" class="middle" colspan="2">
+            <a id="imghere" download="newimage1" class="middle" >Download</a>
+        </td>
         </tr>
     </table>
     </main>
-    <script src="link.js"></script>
+</div>
+<script src="link.js"></script>
 </body>
 </html>

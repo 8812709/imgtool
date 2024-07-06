@@ -17,11 +17,9 @@ welement.addEventListener('change',setdata);
 
 
 //image setting in js
-let imgelement=document.getElementById("inputimage");
-//geting image element
-function settingimage(event) 
+let imgelement=document.getElementById("inputimage");//geting image element
+function settingimage() 
 {
-    event.preventDefault();
     imagedata=imgelement.files[0]; //setting image data(not element) in the imagedata variable
     if(imagedata!=null)
         {
@@ -31,56 +29,49 @@ function settingimage(event)
     else{
         uploadbutton.textContent="Upload"; //will change it to upload if not slected
         console.log("image is not selested yet");
-        alert("please upload the image");
+        alert("please select the image");
     }
 }
 let uploadbutton=document.getElementById("uploadbut");
-uploadbutton.addEventListener('click',settingimage);//on clicking upload it will upload the image in my js 
-
 //selecting endpoint URL here
-let url="http://127.0.0.1:8000/resize"; //normal resize declared the url by default
-let imgsrc; //name of the image where it is saved after the execution of api
+let url="http://127.0.0.1:8000/resize"; //normal resize url as endpoint before even clicking the checkbox
 function selecturl()
 {
     if(checkbox.checked)
         {
-            url="http://127.0.0.1:8000/aspectratio"; //will change the endpoint to apectratioif i checked the box
-            imgsrc="newimage2.png";
+            url="http://127.0.0.1:8000/aspectratio"; //will change the endpoint to apectratio if i check the box
             console.log("endpoint of aspect/ratio is selected as url");
             
         }
     else{
-            url="http://127.0.0.1:8000/resize";
-            imgsrc="newimage1.png";
-            console.log("endpoint of resize is selected");
+            url="http://127.0.0.1:8000/resize"; //resize endpoint is selected if i uncheck the box
+            console.log("endpoint of resize is selected"); 
     }
 }
 let checkbox=document.getElementById("checkbox");
 checkbox.addEventListener("change",selecturl);
-
+//resize button and its function
+resizebutton=document.getElementById("resizebut")
 async function postdata()
 {
-    const formData = new FormData();
+    const formData = new FormData(); //will make a new form object to store the data that has been input
     formData.append('passportphoto', imagedata);
     formData.append('width', wvalue);
     formData.append('height', hvalue);
-    const response=await fetch(url,{
-        method:'POST', //post upload method
-        body:formData
-    });
-    let readable=await response.json(); //using json to convert the response from api to readable format 
-    console.log(readable); 
-}
-resizebutton=document.getElementById("resizebut");
-resizebutton.addEventListener('click',postdata);
-
-// //download button
-// let downloadbutton=document.getElementById("downloadbut"); 
-// function downloadimage()
-// {
-//     let newfilename="downloaded.png";
-//     let img=document.createElement("a");
-//     img.getAttribute(image)
+    let response = await fetch(url, { //to fetch the response through post method to the api 
+            method: 'POST', //post  method is selected 
+            body: formData 
+    })
+    let readable=await response.json; //to convert the data i recieved to json format is readable
+    return console.log(readable);
     
-// }
-// downloadbutton.addEventListener("click",downloadimage);
+}
+function downloadimg(event)
+{
+    
+    let imagesource="newimage1.png"; //i have declared the image source here
+    aelement.setAttribute('href', imagesource);
+    console.log("file is been downloaded");
+}
+let aelement=document.getElementById("imghere");
+aelement.addEventListener('click',downloadimg);

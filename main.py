@@ -2,7 +2,18 @@ from fastapi import FastAPI, UploadFile, File,HTTPException,Form
 from PIL import Image,UnidentifiedImageError
 app = FastAPI()
 from fastapi.middleware.cors import CORSMiddleware
-# Allow all origins during development, be more specific in production
+
+app = FastAPI()
+
+# Set up CORS middleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Allow all origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allow all HTTP methods
+    allow_headers=["*"],  # Allow all headers
+)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://127.0.0.1:5500"],
