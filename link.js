@@ -33,6 +33,23 @@ function settingimage()
     }
 }
 let uploadbutton=document.getElementById("uploadbut");
+//compression part setting the target size
+let targetsize;
+function setTargetSize()
+{
+    if(targetelement.value!=null)
+    {
+        targetsize=targetelement.value;
+        console.log("the target size has been set to",targetsize);
+    }
+    else
+    {
+        alert("please set the estimated target size");
+    }
+    
+}
+let targetelement=document.getElementById("size");
+targetelement.addEventListener('change',setTargetSize);
 //selecting endpoint URL here
 let url="http://127.0.0.1:8000/resize"; //normal resize url as endpoint before even clicking the checkbox
 function selecturl()
@@ -58,6 +75,8 @@ async function postdata()
     formData.append('passportphoto', imagedata);
     formData.append('width', wvalue);
     formData.append('height', hvalue);
+    formData.append('targetsize',targetsize);
+    // formData.append('targetsize',targetsize);
     let response = await fetch(url, { //to fetch the response through post method to the api 
             method: 'POST', //post  method is selected 
             body: formData 

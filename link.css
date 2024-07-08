@@ -1,3 +1,6 @@
+body{
+    background-image: url("backgroundimg.jpg");  
+}
 .adjust{
     font-size: larger;
     font-weight: 200; 
@@ -6,22 +9,26 @@
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     word-spacing: 2px;
-
+    color: white;
+    filter: brightness(90%);
 }
 #table1{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    background-color: rgb(0, 255, 255);
+    /* color: whitesmoke; */
     border-radius: 30px;
     padding: 8px;
     border-style: groove;
-    border-color: black;
+    border-color: rgba(245, 245, 245, 0.909);
+    background-color: rgba(245, 245, 245, 0.893);
+    /* background-image: url(backgroundtable.jpg); */
 }
 #table2{
     /* text-align: center; */
     width: 60%;
+    /* color: whitesmoke; */
     margin-left: auto;
     margin-top: 3px;
     margin-right: auto;
@@ -29,10 +36,10 @@
     border-radius: 45px;
     padding-bottom: 10px;
     padding: 20px;
-    /* background-color:rgba(137, 43, 226, 0.532); */
-}
-body{
-    background-color: aquamarine;
+    border-color: whitesmoke;
+    /* background-color: aquamarine; */
+    /* background-image: url(backgroundtable.jpg); */
+    background-color:rgba(245, 245, 245, 0.877);
 }
 .middle,#inputimage{
     text-align: center;
