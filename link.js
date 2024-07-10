@@ -76,7 +76,6 @@ async function postdata()
     formData.append('width', wvalue);
     formData.append('height', hvalue);
     formData.append('targetsize',targetsize);
-    // formData.append('targetsize',targetsize);
     let response = await fetch(url, { //to fetch the response through post method to the api 
             method: 'POST', //post  method is selected 
             body: formData 
