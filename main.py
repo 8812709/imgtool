@@ -26,7 +26,7 @@ async def resize_image(passportphoto:UploadFile=File(),width:int=Form(),height:i
     actualsize=os.path.getsize("newimage1.png")#the size of the image for comparision
     while True:
         if targetsize<actualsize and quality>1: #will compare the size of the image and desired size and will give the most appropriate result
-            quality=quality-5
+            quality=quality-3
             resized_image.save("newimage1.png",optimize=True,quality=quality)
             actualsize=os.path.getsize("newimage1.png")
         else:

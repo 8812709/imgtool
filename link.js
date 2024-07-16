@@ -69,10 +69,11 @@ let checkbox=document.getElementById("checkbox");
 checkbox.addEventListener("change",selecturl);
 //resize button and its function
 resizebutton=document.getElementById("resizebut")
+let aelement=document.getElementById("imghere");
 async function postdata()
 {
     const formData = new FormData(); //will make a new form object to store the data that has been input
-    formData.append('passportphoto', imagedata);
+    formData.append('passportphoto', imagedata); //appending the image data in the form data
     formData.append('width', wvalue);
     formData.append('height', hvalue);
     formData.append('targetsize',targetsize);
@@ -80,16 +81,25 @@ async function postdata()
             method: 'POST', //post  method is selected 
             body: formData 
     })
-    let readable=await response.json; //to convert the data i recieved to json format is readable
-    return console.log(readable);
-    
+    if (response.ok) {
+        let readable = await response.json();
+        console.log(readable);
+        aelement.classList.remove('disabled'); // Enable the download link
+        aelement.setAttribute('href', "newimage1.png"); // Set the download link href
+    } else {
+        console.error('Resize failed');
+    }
 }
 function downloadimg(event)
 {
+    if (aelement.classList.contains('disabled')) { //checks the anchor element class is still disabled or not
+        event.preventDefault(); //prevent its default function like opening the url at click
+        alert('Image is not Resized'); //gives alert if it is disabled and user clicks it
+    }
+    else
+    {
+        console.log("file is been downloaded"); 
+    }
     
-    let imagesource="newimage1.png"; //i have declared the image source here
-    aelement.setAttribute('href', imagesource);
-    console.log("file is been downloaded");
 }
-let aelement=document.getElementById("imghere");
 aelement.addEventListener('click',downloadimg);
