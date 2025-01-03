@@ -1,1 +1,13 @@
 This project is all about an image processing tool based on fastapi which can help in resizing & converting the image to a particular aspect ratio,compressing its size etc. so that it can be uploaded to exam portals which allows definite size and aspect ratio of images.
+
+
+TO ESTABLISH THE BACKEND SERVER.
+
+OPEN THE TERMINAL AND CHANGE THE DIRECTORY TO THE ROOT DIRECTORY WHERE MAIN.PY FILE IS PRESENT.
+
+BEFORE PROCEEDING TOWARDS THE NEXT STEP MAKE SURE UVICORN AND FASTAPI IS INSTALLED.
+
+RUN THE COMMAND IN THE TERMINAL-
+uvicron main:app --reload
+
+OPEN FASTAPI SWAGGER UI OR THE CUSTOM FRONTEND TO SEND REQUEST TO THE SERVER WITH PARAMETERS LIKE HEIGHT, WIDTH & SIZE AND GET THE RESIZED IMAGE ON THE BASIS OF THAT WITH OT WITHOUT MAINTAINING THE ASPECT RATIO OF IT AND THE DESIRED SIZE OF IMAGE.
