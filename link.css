@@ -52,17 +52,13 @@ body{
     padding-bottom: 10px;
     padding-left: 10px;
 }
-#resizebut,#uploadbut{
-    background-color: aqua;
+button{
+    background-color:whitesmoke;
     padding-top: 3px;
     border-style: solid;
     border-radius: 30px;
 }
-#imghere{
-    padding-left: 20px;
-    padding-right: 20px;
-    background-color: rgba(217, 102, 20, 0.747);
-    border-style: solid;
-    border-radius: 15px;
-    text-decoration: none;
-}
+button:hover {
+    background-color:black;
+    color: white;
+  }

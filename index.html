@@ -33,45 +33,46 @@
     </table>
     <br>
 <div>
-    <table id="table2">
-        <tr>
-            <td rowspan="4" id="tablerow" class="middle"><input type="file" id="inputimage" accept="image/*"></td>
-            <td colspan="2"><b>Custom resize</b></td>
-        </tr>
-        <tr>
-            <td><label for="wid">Width(in Px)</label></td>
-            <td><label for="hei">Height(in Px)</label></td>
-        </tr>
-        <tr>
-            <td><input type="number" id="wid" placeholder="Enter the width here"></td>
-            <td><input type="number" id="hei" placeholder="Enter the Height here"></td>
-        </tr>
-        <tr>
-            <td class="middle">
-                <label for="size">Enter the target file size(in KB)</label>
+        <table id="table2">
+            <tr>
+                <td rowspan="4" id="tablerow" class="middle"><input type="file" id="inputimage" accept="image/*"></td>
+                <td colspan="2"><b>Custom resize</b></td>
+            </tr>
+            <tr>
+                <td><label for="wid">Width(in Px)</label></td>
+                <td><label for="hei">Height(in Px)</label></td>
+            </tr>
+            <tr>
+                <td><input type="number" id="wid" placeholder="Enter the width here"></td>
+                <td><input type="number" id="hei" placeholder="Enter the Height here"></td>
+            </tr>
+            <tr>
+                <td class="middle">
+                    <label for="size">Enter the target file size(in KB)</label>
+                </td>
+                <td>
+                    <input type="number" name="targetsize" id="size" placeholder="Enter the target file size">
+                </td>
+            </tr>
+            <tr>
+                <td class="middle"><button id="uploadbut" onclick="settingimage()">Upload</button></td>
+                <td class="middle" colspan="3">
+                    <label for="checkbox" class="middle">Maintain Aspect Ratio</label>
+                    <input type="checkbox" id="checkbox" class="middle">
+                </td>
+                
+            </tr>
+            <tr>
+                 <td class="middle">
+                <button id="resizebut" type="button" onclick="postdata()">Resize Image</button>
             </td>
-            <td>
-                <input type="number" name="targetsize" id="size" placeholder="Enter the target file size">
+            <td id="table2r6" class="middle" colspan="2">
+                <button><a id="imghere" download="newimage1" class="middle disabled" style="text-decoration: none;">Download</a></button>
             </td>
-        </tr>
-        <tr>
-            <td class="middle"><button id="uploadbut" onclick="settingimage()">Upload</button></td>
-            <td class="middle" colspan="3">
-                <label for="checkbox" class="middle">Maintain Aspect Ratio</label>
-                <input type="checkbox" id="checkbox" class="middle">
-            </td>
-            
-        </tr>
-        <tr>
-             <td class="middle">
-            <button id="resizebut" onclick="postdata()">Resize Image</button>
-        </td>
-        <td id="table2r6" class="middle" colspan="2">
-            <a id="imghere" download="newimage1" class="middle disabled">Download</a>
-        </td>
-        </tr>
-    </table>
-    </main>
+            </tr>
+        </table>
+        </main>
+
 </div>
 <script src="link.js"></script>
 </body>
